@@ -12,7 +12,7 @@ class Record {
 public:
     int id, manager_id;
     std::string bio, name;
-Record() : id(0), manager_id(0), bio(""), name("");
+Record() : id(0), manager_id(0), bio(""), name(""){};
 
     Record(vector<std::string> fields) {
         id = stoi(fields[0]);
@@ -167,7 +167,7 @@ private:
         }
         // Then write after clear, because it's first record, we don't think, we push
         numRecords++;
-        index = to_string(currentRecordPos) + "$" + to_string(tempsize) + "$";
+        index = to_string(currentRecordPos) + "," + to_string(tempsize) + ",";
         currentRecordPos += tempsize;
         for (int i = 0; i < tempsize; i++) {
             Data.push_back(tempData[i]);
